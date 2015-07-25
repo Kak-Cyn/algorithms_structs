@@ -8,14 +8,35 @@ class Palindrome
     const METHOD_NAIVE = 1;
     const METHOD_PROGRESSIVE = 2;
 
-    static public function reverseString($string) {
-        $reversed = '';
+    static public function canBePalindrome($string) {
+        $counts = [];
 
-        for ($i = strlen($string) -1 ; $i >= 0; $i--) {
-            $reversed .= $string[$i];
+        for ($i = 0, $n = strlen($string); $i < $n; $i++) {
+            if (isset($counts[$string[$i]])) {
+                $counts[$string[$i]]++;
+            } else {
+                $counts[$string[$i]] = 1;
+            }
         }
 
-        return $reversed;
+        $numOdd = 0;
+        foreach ($counts as $count) {
+            if ($count % 2 !== 0) {
+                $numOdd++;
+
+                if ($numOdd > 1) {
+
+                    return false;
+                }
+            }
+        }
+
+        return true;
+    }
+
+    static public function reverseString($string) {
+
+        return strrev($string);
     }
 
     static public function stripNonChars($string) {
