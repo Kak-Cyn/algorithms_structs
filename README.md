@@ -13,6 +13,7 @@ _Basic_ implementations of various algorithms and data structures in PHP.
 * Sorting
     * bubblesort.php
     * quicksort.php
+    * insertionsort.php
 * Strings
     * Palindrome - Various ways to tell if a string is a palindrome
     * Permutations - Output all permutations of a string
