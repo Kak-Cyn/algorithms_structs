@@ -10,8 +10,14 @@ class Palindrome
 
     static public function canBePalindrome($string) {
         $counts = [];
+        $n = strlen($string);
 
-        for ($i = 0, $n = strlen($string); $i < $n; $i++) {
+        if ($n == 0) {
+
+            return false;
+        }
+
+        for ($i = 0; $i < $n; $i++) {
             if (isset($counts[$string[$i]])) {
                 $counts[$string[$i]]++;
             } else {
